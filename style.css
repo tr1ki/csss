@@ -1,0 +1,727 @@
+/* ===========================================
+   Bobo Pizza - CSS Styling
+   Assignment #2 - CSS Styling (Colors, Fonts, Layout)
+   Team: bobo pizza
+   Members: Balakarev Sergey, Team Member 2, Team Member 3
+   =========================================== */
+
+/* ===========================================
+   CSS RESET & BASE STYLES
+   =========================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', 'Helvetica', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f8f9fa;
+}
+
+/* ===========================================
+   ELEMENT SELECTORS
+   =========================================== */
+h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #d32f2f;
+    margin-bottom: 1rem;
+}
+
+h2 {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+h3 {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: #34495e;
+    margin-bottom: 1rem;
+}
+
+h4 {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+}
+
+p {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    color: #555;
+}
+
+a {
+    text-decoration: none;
+    color: #d32f2f;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #b71c1c;
+    text-decoration: underline;
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* ===========================================
+   CLASS SELECTORS
+   =========================================== */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+}
+
+.logo h1 {
+    color: #d32f2f;
+    font-size: 2rem;
+    margin: 0;
+}
+
+.main-nav ul {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-link {
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+    background-color: #d32f2f;
+    color: white;
+    text-decoration: none;
+}
+
+.nav-link.active {
+    background-color: #d32f2f;
+    color: white;
+}
+
+.section-title {
+    position: relative;
+    margin-bottom: 3rem;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background-color: #d32f2f;
+    border-radius: 2px;
+}
+
+.hero {
+    background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+    color: white;
+    padding: 4rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 500px;
+}
+
+.hero-content {
+    flex: 1;
+    max-width: 600px;
+}
+
+.hero-title {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: white;
+}
+
+.hero-description {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    color: #f8f9fa;
+}
+
+.cta-button {
+    background-color: #2c3e50;
+    color: white;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.cta-button:hover {
+    background-color: #34495e;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.hero-image {
+    flex: 1;
+    text-align: center;
+}
+
+.pizza-image {
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease;
+}
+
+.pizza-image:hover {
+    transform: scale(1.05);
+}
+
+.features {
+    padding: 4rem 0;
+    background-color: white;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.feature-card {
+    text-align: center;
+    padding: 2rem;
+    border-radius: 10px;
+    background-color: #f8f9fa;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.feature-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.popular-pizzas {
+    padding: 4rem 0;
+    background-color: #f8f9fa;
+}
+
+.pizza-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.pizza-card {
+    background-color: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.pizza-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+}
+
+.pizza-card-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.pizza-card h3 {
+    padding: 1rem 1rem 0.5rem;
+    color: #2c3e50;
+}
+
+.pizza-card p {
+    padding: 0 1rem;
+    color: #666;
+}
+
+.price {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #d32f2f;
+    padding: 1rem;
+    text-align: center;
+}
+
+.menu {
+    padding: 4rem 0;
+    background-color: white;
+}
+
+.menu-category {
+    margin-bottom: 3rem;
+}
+
+.category-title {
+    font-size: 2rem;
+    color: #d32f2f;
+    margin-bottom: 2rem;
+    text-align: center;
+    border-bottom: 2px solid #d32f2f;
+    padding-bottom: 0.5rem;
+}
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 2rem;
+}
+
+.menu-item {
+    display: flex;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    padding: 1rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.menu-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.menu-item-image {
+    margin-right: 1rem;
+    flex-shrink: 0;
+}
+
+.menu-image {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.circular-image {
+    border-radius: 50%;
+}
+
+.menu-item-content {
+    flex: 1;
+}
+
+.menu-item-content h4 {
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+}
+
+.menu-item-content p {
+    color: #666;
+    margin-bottom: 0.5rem;
+}
+
+.contact {
+    padding: 4rem 0;
+    background-color: #f8f9fa;
+}
+
+.contact-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    margin-top: 2rem;
+}
+
+.contact-info h3 {
+    color: #d32f2f;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.contact-icon {
+    font-size: 2rem;
+    margin-right: 1rem;
+    color: #d32f2f;
+}
+
+.contact-details h4 {
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+}
+
+.contact-details p {
+    color: #666;
+    margin: 0;
+}
+
+.contact-form-container {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+.contact-form-container h3 {
+    color: #d32f2f;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: #2c3e50;
+}
+
+.form-input,
+.form-select,
+.form-textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+    outline: none;
+    border-color: #d32f2f;
+    box-shadow: 0 0 0 3px rgba(211, 47, 47, 0.1);
+}
+
+.form-textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.form-checkbox {
+    margin-right: 0.5rem;
+}
+
+.submit-button {
+    background-color: #d32f2f;
+    color: white;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+}
+
+.submit-button:hover {
+    background-color: #b71c1c;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(211, 47, 47, 0.3);
+}
+
+.map {
+    padding: 3rem 0;
+    background-color: white;
+}
+
+.map-title {
+    text-align: center;
+    color: #d32f2f;
+    margin-bottom: 2rem;
+}
+
+.map-placeholder {
+    background-color: #f8f9fa;
+    border: 2px dashed #d32f2f;
+    border-radius: 10px;
+    padding: 3rem;
+    text-align: center;
+    color: #666;
+}
+
+.footer {
+    background-color: #2c3e50;
+    color: white;
+    padding: 3rem 0 1rem;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.footer-section h3 {
+    color: #d32f2f;
+    margin-bottom: 1rem;
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section ul li {
+    margin-bottom: 0.5rem;
+    color: #bdc3c7;
+}
+
+.footer-section p {
+    color: #bdc3c7;
+    margin-bottom: 0.5rem;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid #34495e;
+    color: #bdc3c7;
+}
+
+/* ===========================================
+   ID SELECTORS
+   =========================================== */
+#main-header {
+    background-color: white;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+#hero-section {
+    background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+}
+
+#features-section {
+    background-color: white;
+}
+
+#popular-pizzas {
+    background-color: #f8f9fa;
+}
+
+#menu-section {
+    background-color: white;
+}
+
+#contact-section {
+    background-color: #f8f9fa;
+}
+
+#map-section {
+    background-color: white;
+}
+
+#main-footer {
+    background-color: #2c3e50;
+}
+
+/* ===========================================
+   DESCENDANT SELECTORS
+   =========================================== */
+.nav a {
+    color: #d32f2f;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav a:hover {
+    color: #b71c1c;
+}
+
+.footer-section ul li a {
+    color: #bdc3c7;
+    transition: color 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+    color: #d32f2f;
+}
+
+/* ===========================================
+   RESPONSIVE DESIGN
+   =========================================== */
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .main-nav ul {
+        flex-direction: column;
+        gap: 0.5rem;
+        text-align: center;
+    }
+    
+    .hero {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .contact-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .menu-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .menu-item {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .menu-item-image {
+        margin-right: 0;
+        margin-bottom: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 10px;
+    }
+    
+    .hero {
+        padding: 2rem 1rem;
+    }
+    
+    .hero-title {
+        font-size: 1.5rem;
+    }
+    
+    .section-title {
+        font-size: 1.5rem;
+    }
+}
+
+/* ===========================================
+   ADVANCED STYLING (BONUS)
+   =========================================== */
+
+/* Pseudo-elements for decorative elements */
+.section-title::before {
+    content: '🍕';
+    margin-right: 0.5rem;
+    font-size: 1.2em;
+}
+
+/* Smooth transitions for interactive elements */
+.cta-button,
+.submit-button,
+.nav-link,
+.pizza-card,
+.feature-card,
+.menu-item {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #d32f2f;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #b71c1c;
+}
+
+/* Loading animation for images */
+.pizza-image,
+.menu-image {
+    transition: opacity 0.3s ease;
+}
+
+.pizza-image:hover,
+.menu-image:hover {
+    opacity: 0.9;
+}
+
+/* Focus styles for accessibility */
+.cta-button:focus,
+.submit-button:focus,
+.nav-link:focus {
+    outline: 2px solid #d32f2f;
+    outline-offset: 2px;
+}
+
+/* Print styles */
+@media print {
+    .main-nav,
+    .cta-button,
+    .submit-button {
+        display: none;
+    }
+    
+    body {
+        font-size: 12pt;
+        line-height: 1.4;
+    }
+}
