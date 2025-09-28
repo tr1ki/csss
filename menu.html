@@ -7,126 +7,110 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Header Section -->
-    <header id="main-header">
-        <div class="header-content">
-            <div class="logo">
-                <h1>🍕 Bobo Pizza</h1>
-            </div>
-            <nav class="main-nav">
-                <ul>
-                    <li><a href="index.html" class="nav-link">Home</a></li>
-                    <li><a href="menu.html" class="nav-link active">Menu</a></li>
-                    <li><a href="contact.html" class="nav-link">Contact</a></li>
-                </ul>
-            </nav>
+    <!-- Header with Flexbox Navigation -->
+    <header class="header">
+        <div class="logo">
+            <h1>🍕 Bobo Pizza</h1>
         </div>
+        <nav class="nav">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="menu.html" class="nav-link active">Menu</a>
+            <a href="contact.html" class="nav-link">Contact</a>
+        </nav>
     </header>
 
-    <!-- Menu Section -->
-    <section id="menu-section" class="menu">
-        <div class="container">
-            <h2 class="section-title">Our Complete Menu</h2>
-            
-            <!-- Pizza Category -->
-            <div class="menu-category">
-                <h3 class="category-title">🍕 Pizzas</h3>
-                <div class="menu-grid">
-                    <div class="menu-item">
-                        <div class="menu-item-image">
-                            <img src="pizza-margherita.jpg" alt="Margherita" class="menu-image">
-                        </div>
-                        <div class="menu-item-content">
-                            <h4>Margherita</h4>
-                            <p>Classic tomato sauce, fresh mozzarella, and basil leaves</p>
-                            <span class="price">$12.99</span>
-                        </div>
-                    </div>
-                    <div class="menu-item">
-                        <div class="menu-item-image">
-                            <img src="pizza-pepperoni.jpg" alt="Pepperoni" class="menu-image">
-                        </div>
-                        <div class="menu-item-content">
-                            <h4>Pepperoni</h4>
-                            <p>Spicy pepperoni with mozzarella cheese</p>
-                            <span class="price">$15.99</span>
-                        </div>
-                    </div>
-                    <div class="menu-item">
-                        <div class="menu-item-image">
-                            <img src="pizza-bbq.jpg" alt="BBQ Chicken" class="menu-image">
-                        </div>
-                        <div class="menu-item-content">
-                            <h4>BBQ Chicken</h4>
-                            <p>Grilled chicken, BBQ sauce, red onions, and cilantro</p>
-                            <span class="price">$17.99</span>
-                        </div>
-                    </div>
-                    <div class="menu-item">
-                        <div class="menu-item-image">
-                            <img src="menu-supreme.jpg" alt="Supreme" class="menu-image circular-image">
-                        </div>
-                        <div class="menu-item-content">
-                            <h4>Supreme</h4>
-                            <p>Pepperoni, sausage, bell peppers, onions, and mushrooms</p>
-                            <span class="price">$19.99</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <!-- Main Grid Layout -->
+    <div class="main-grid">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <h3>Menu Categories</h3>
+            <ul>
+                <li><a href="#pizzas">🍕 Pizzas</a></li>
+                <li><a href="#drinks">🥤 Drinks</a></li>
+            </ul>
+        </aside>
 
-            <!-- Drinks Category -->
-            <div class="menu-category">
-                <h3 class="category-title">🥤 Drinks</h3>
-                <div class="menu-grid">
-                    <div class="menu-item">
-                        <div class="menu-item-image">
-                            <img src="drink-cola.jpg" alt="Coca Cola" class="menu-image circular-image">
-                        </div>
-                        <div class="menu-item-content">
-                            <h4>Coca Cola</h4>
-                            <p>Classic refreshing cola drink</p>
-                            <span class="price">$2.99</span>
-                        </div>
+        <!-- Main Content -->
+        <main class="main-content">
+            <h2>Our Complete Menu</h2>
+            
+            <!-- Pizza Category with Flexbox Cards -->
+            <section id="pizzas" class="menu-section">
+                <h3>🍕 Pizzas</h3>
+                <div class="cards-container">
+                    <div class="card">
+                        <img src="pizza-margherita.jpg" alt="Margherita" class="card-image">
+                        <h4>Margherita</h4>
+                        <p>Classic tomato sauce, fresh mozzarella, and basil leaves</p>
+                        <span class="price">$12.99</span>
+                        <button class="card-button">Order Now</button>
                     </div>
-                    <div class="menu-item">
-                        <div class="menu-item-image">
-                            <img src="drink-orange.jpg" alt="Orange Juice" class="menu-image circular-image">
-                        </div>
-                        <div class="menu-item-content">
-                            <h4>Fresh Orange Juice</h4>
-                            <p>100% fresh squeezed orange juice</p>
-                            <span class="price">$3.99</span>
-                        </div>
+                    <div class="card">
+                        <img src="pizza-pepperoni.jpg" alt="Pepperoni" class="card-image">
+                        <h4>Pepperoni</h4>
+                        <p>Spicy pepperoni with mozzarella cheese</p>
+                        <span class="price">$15.99</span>
+                        <button class="card-button">Order Now</button>
+                    </div>
+                    <div class="card">
+                        <img src="pizza-bbq.jpg" alt="BBQ Chicken" class="card-image">
+                        <h4>BBQ Chicken</h4>
+                        <p>Grilled chicken, BBQ sauce, red onions, and cilantro</p>
+                        <span class="price">$17.99</span>
+                        <button class="card-button">Order Now</button>
+                    </div>
+                    <div class="card">
+                        <img src="menu-supreme.jpg" alt="Supreme" class="card-image">
+                        <h4>Supreme</h4>
+                        <p>Pepperoni, sausage, bell peppers, onions, and mushrooms</p>
+                        <span class="price">$19.99</span>
+                        <button class="card-button">Order Now</button>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
+            </section>
+
+            <!-- Drinks Category with Flexbox Cards -->
+            <section id="drinks" class="menu-section">
+                <h3>🥤 Drinks</h3>
+                <div class="cards-container">
+                    <div class="card">
+                        <img src="drink-cola.jpg" alt="Coca Cola" class="card-image">
+                        <h4>Coca Cola</h4>
+                        <p>Classic refreshing cola drink</p>
+                        <span class="price">$2.99</span>
+                        <button class="card-button">Order Now</button>
+                    </div>
+                    <div class="card">
+                        <img src="drink-orange.jpg" alt="Orange Juice" class="card-image">
+                        <h4>Fresh Orange Juice</h4>
+                        <p>100% fresh squeezed orange juice</p>
+                        <span class="price">$3.99</span>
+                        <button class="card-button">Order Now</button>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
 
     <!-- Footer -->
-    <footer id="main-footer" class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Bobo Pizza</h3>
-                    <p>Delicious pizza fast delivery</p>
-                </div>
-                <div class="footer-section">
-                    <h3>Team Member</h3>
-                    <ul>
-                        <li>Balakarev Sergey</li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>Contact Info</h3>
-                    <p>📞 8 777 009 09 09</p>
-                    <p>📧 bobopizza@gmail.com</p>
-                </div>
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Bobo Pizza</h3>
+                <p>Delicious pizza fast delivery</p>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 Bobo Pizza </p>
+            <div class="footer-section">
+                <h3>Team Member</h3>
+                <p>Balakarev Sergey</p>
             </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>📞 8 777 009 09 09</p>
+                <p>📧 bobopizza@gmail.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Bobo Pizza</p>
         </div>
     </footer>
 </body>

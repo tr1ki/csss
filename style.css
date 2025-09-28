@@ -1,9 +1,13 @@
-/* ===========================================
-   Bobo Pizza - CSS Styling
-   Assignment #2 - CSS Styling (Colors, Fonts, Layout)
-   Team: bobo pizza
-   Members: Balakarev Sergey
-   =========================================== */
+/*
+This CSS file implements all the requirements from the Flexbox + Grid assignment:
+- Part 1 Task 1: Flexbox navigation with logo and links
+- Part 1 Task 2: Flexbox cards with equal heights and hover effects
+- Part 2 Task 3: Grid layout with header, sidebar, main content, and footer
+- Part 2 Task 4: Grid image gallery with hover overlays
+- Part 3: Combined Flexbox and Grid for a complete responsive website
+*/
+
+/* Starting with basic styles to make everything look clean and consistent */
 * {
     margin: 0;
     padding: 0;
@@ -11,84 +15,20 @@
 }
 
 body {
-    font-family: 'Arial', 'Helvetica', sans-serif;
+    font-family: Arial, sans-serif;
     line-height: 1.6;
     color: #333;
     background-color: #f8f9fa;
 }
 
-/* ===========================================
-   ELEMENT SELECTORS
-   =========================================== */
-h1 {
-    font-size: 2.5rem;
-    font-weight: bold;
-    color: #d32f2f;
-    margin-bottom: 1rem;
-}
-
-h2 {
-    font-size: 2rem;
-    font-weight: 600;
-    color: #2c3e50;
-    margin-bottom: 1.5rem;
-    text-align: center;
-}
-
-h3 {
-    font-size: 1.5rem;
-    font-weight: 500;
-    color: #34495e;
-    margin-bottom: 1rem;
-}
-
-h4 {
-    font-size: 1.2rem;
-    font-weight: 500;
-    color: #2c3e50;
-    margin-bottom: 0.5rem;
-}
-
-p {
-    font-size: 1rem;
-    margin-bottom: 1rem;
-    color: #555;
-}
-
-a {
-    text-decoration: none;
-    color: #d32f2f;
-    transition: color 0.3s ease;
-}
-
-a:hover {
-    color: #b71c1c;
-    text-decoration: underline;
-}
-
-ul {
-    list-style: none;
-}
-
-img {
-    max-width: 100%;
-    height: auto;
-}
-
-/* ===========================================
-   CLASS SELECTORS
-   =========================================== */
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-.header-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+/* Part 1 Task 1: Here I made the header into a flexbox container to align logo and navigation links horizontally */
+.header {
+    background-color: white;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     padding: 1rem 2rem;
+    display: flex; /* Making header a flexbox container as required */
+    justify-content: space-between; /* Logo on left, links on right */
+    align-items: center; /* Vertically centering everything */
 }
 
 .logo h1 {
@@ -97,77 +37,100 @@ img {
     margin: 0;
 }
 
-.main-nav ul {
-    display: flex;
-    gap: 2rem;
+.nav {
+    display: flex; /* Making navigation links a flexbox row */
+    gap: 2rem; /* Adding consistent spacing between links as required */
 }
 
 .nav-link {
+    text-decoration: none;
+    color: #333;
     font-weight: 500;
     padding: 0.5rem 1rem;
     border-radius: 5px;
     transition: all 0.3s ease;
 }
 
-.nav-link:hover {
-    background-color: #d32f2f;
-    color: white;
-    text-decoration: none;
-}
-
+.nav-link:hover,
 .nav-link.active {
     background-color: #d32f2f;
     color: white;
 }
 
-.section-title {
-    position: relative;
-    margin-bottom: 3rem;
+/* Part 2 Task 3: I created the main page layout using CSS Grid with sidebar on left and main content on right */
+.main-grid {
+    display: grid; /* Making this a grid container as required */
+    grid-template-areas: 
+        "sidebar main-content"; /* Defining grid areas: sidebar left, main content right */
+    grid-template-columns: 250px 1fr; /* Sidebar fixed width, main content takes remaining space */
+    min-height: calc(100vh - 140px);
+    gap: 2rem; /* Adding consistent spacing between grid areas */
+    padding: 2rem;
 }
 
-.section-title::after {
-    content: '';
-    position: absolute;
-    bottom: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 60px;
-    height: 3px;
-    background-color: #d32f2f;
-    border-radius: 2px;
+.sidebar {
+    grid-area: sidebar; /* Assigning sidebar to its grid area on the left */
+    background-color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    height: fit-content;
+    position: sticky;
+    top: 2rem;
 }
 
+.sidebar h3 {
+    color: #d32f2f;
+    margin-bottom: 1rem;
+}
+
+.sidebar ul {
+    list-style: none;
+}
+
+.sidebar ul li {
+    margin-bottom: 0.5rem;
+}
+
+.sidebar ul li a {
+    color: #666;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.sidebar ul li a:hover {
+    color: #d32f2f;
+    text-decoration: underline;
+}
+
+
+.main-content {
+    grid-area: main-content; /* Assigning main content to its grid area on the right */
+}
+
+/* This is just a nice welcome section to make the website look complete and engaging */
 .hero {
     background: linear-gradient(135deg, #ff6b6b, #ee5a24);
     color: white;
-    padding: 4rem 2rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    min-height: 500px;
+    padding: 3rem;
+    border-radius: 15px;
+    text-align: center;
+    margin-bottom: 2rem;
 }
 
-.hero-content {
-    flex: 1;
-    max-width: 600px;
-}
-
-.hero-title {
-    font-size: 3rem;
-    font-weight: bold;
+.hero h2 {
+    font-size: 2.5rem;
     margin-bottom: 1rem;
-    color: white;
 }
 
-.hero-description {
+.hero p {
     font-size: 1.2rem;
     margin-bottom: 2rem;
-    color: #f8f9fa;
 }
 
 .cta-button {
-    background-color: #2c3e50;
-    color: white;
+    background-color: white;
+    color: #d32f2f;
     padding: 1rem 2rem;
     border: none;
     border-radius: 50px;
@@ -175,381 +138,164 @@ img {
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
-    text-transform: uppercase;
-    letter-spacing: 1px;
 }
 
 .cta-button:hover {
-    background-color: #34495e;
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
 
-.hero-image {
-    flex: 1;
-    text-align: center;
-}
-
-.pizza-image {
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-    transition: transform 0.3s ease;
-}
-
-.pizza-image:hover {
-    transform: scale(1.05);
-}
-
-/* Disable zoom on hover specifically for the hero image */
-.hero-image .pizza-image:hover {
-    transform: none;
-}
-
-/* Slightly reduce the hero image size */
-.hero-image .pizza-image {
-    width: 90%;
-    height: auto;
-}
-
+/* Part 1 Task 2: I made the cards container a flexbox so all cards appear in a row with equal heights */
 .features {
-    padding: 4rem 0;
-    background-color: white;
+    margin-bottom: 2rem;
 }
 
-.features-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
-}
-
-.feature-card {
+.features h2 {
     text-align: center;
+    color: #2c3e50;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+}
+
+.cards-container {
+    display: flex; /* Making cards container a flexbox as required */
+    gap: 2rem; /* Adding consistent gaps between cards */
+    justify-content: space-between; /* Cards appear in a row */
+}
+
+.card {
+    background-color: white;
     padding: 2rem;
-    border-radius: 10px;
-    background-color: #f8f9fa;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    text-align: center;
+    flex: 1; /* Making all cards equal width */
+    display: flex; /* Making each card a flexbox container */
+    flex-direction: column; /* Stacking content vertically */
+    align-items: center; /* Centering content horizontally */
+    transition: all 0.3s ease; /* Smooth hover effect */
 }
 
-.feature-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+.card:hover {
+    transform: translateY(-5px); /* Lifting card up on hover as required */
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2); /* Adding shadow effect */
 }
 
-.feature-icon {
+.card-icon {
     font-size: 3rem;
     margin-bottom: 1rem;
 }
 
-.popular-pizzas {
-    padding: 4rem 0;
-    background-color: #f8f9fa;
-}
-
-.pizza-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
-}
-
-.pizza-card {
-    background-color: white;
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.pizza-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
-}
-
-.pizza-card-image {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
-}
-
-.pizza-card h3 {
-    padding: 1rem 1rem 0.5rem;
+.card h3 {
     color: #2c3e50;
-}
-
-.pizza-card p {
-    padding: 0 1rem;
-    color: #666;
-}
-
-.price {
-    display: block;
+    margin-bottom: 1rem;
     font-size: 1.5rem;
-    font-weight: bold;
-    color: #d32f2f;
-    padding: 1rem;
-    text-align: center;
 }
 
-.menu {
-    padding: 4rem 0;
-    background-color: white;
-}
-
-.menu-category {
-    margin-bottom: 3rem;
-}
-
-.category-title {
-    font-size: 2rem;
-    color: #d32f2f;
-    margin-bottom: 2rem;
-    text-align: center;
-    border-bottom: 2px solid #d32f2f;
-    padding-bottom: 0.5rem;
-}
-
-.menu-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-    gap: 2rem;
-}
-
-.menu-item {
-    display: flex;
-    background-color: #f8f9fa;
-    border-radius: 10px;
-    padding: 1rem;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.menu-item:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-}
-
-.menu-item-image {
-    margin-right: 1rem;
-    flex-shrink: 0;
-}
-
-.menu-image {
-    width: 110px;
-    height: 110px;
-    object-fit: cover;
-    object-position: center;
-    border-radius: 10px;
-}
-
-.circular-image {
-    border-radius: 50%;
-}
-
-/* Enhance circular drink thumbnails only */
-.menu-image.circular-image {
-    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-}
-
-.menu-item-content {
-    flex: 1;
-}
-
-.menu-item-content h4 {
-    color: #2c3e50;
-    margin-bottom: 0.5rem;
-}
-
-.menu-item-content p {
+.card p {
     color: #666;
-    margin-bottom: 0.5rem;
-}
-
-.contact {
-    padding: 4rem 0;
-    background-color: #f8f9fa;
-}
-
-.contact-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
-    margin-top: 2rem;
-}
-
-.contact-info h3 {
-    color: #d32f2f;
-    margin-bottom: 2rem;
-    text-align: center;
-}
-
-.contact-item {
-    display: flex;
-    align-items: center;
-    margin-bottom: 2rem;
-    padding: 1rem;
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-}
-
-.contact-icon {
-    font-size: 2rem;
-    margin-right: 1rem;
-    color: #d32f2f;
-}
-
-.contact-details h4 {
-    color: #2c3e50;
-    margin-bottom: 0.5rem;
-}
-
-.contact-details p {
-    color: #666;
-    margin: 0;
-}
-
-.contact-form-container {
-    background-color: white;
-    padding: 2rem;
-    border-radius: 15px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-}
-
-.contact-form-container h3 {
-    color: #d32f2f;
-    margin-bottom: 2rem;
-    text-align: center;
-}
-
-.form-group {
     margin-bottom: 1.5rem;
+    flex-grow: 1;
 }
 
-.form-group label {
-    display: block;
-    margin-bottom: 0.5rem;
-    font-weight: 500;
-    color: #2c3e50;
-}
-
-.form-input,
-.form-select,
-.form-textarea {
-    width: 100%;
-    padding: 0.75rem;
-    border: 2px solid #e0e0e0;
-    border-radius: 8px;
-    font-size: 1rem;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-.form-input:focus,
-.form-select:focus,
-.form-textarea:focus {
-    outline: none;
-    border-color: #d32f2f;
-    box-shadow: 0 0 0 3px rgba(211, 47, 47, 0.1);
-}
-
-.form-textarea {
-    resize: vertical;
-    min-height: 120px;
-}
-
-.checkbox-label {
-    display: flex;
-    align-items: center;
-    font-size: 0.9rem;
-    color: #666;
-}
-
-.form-checkbox {
-    margin-right: 0.5rem;
-}
-
-.submit-button {
+.card-button {
     background-color: #d32f2f;
     color: white;
-    padding: 1rem 2rem;
+    padding: 0.75rem 1.5rem;
     border: none;
-    border-radius: 8px;
-    font-size: 1.1rem;
-    font-weight: 600;
+    border-radius: 25px;
     cursor: pointer;
     transition: all 0.3s ease;
-    width: 100%;
 }
 
-.submit-button:hover {
+.card-button:hover {
     background-color: #b71c1c;
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(211, 47, 47, 0.3);
+    transform: scale(1.05);
 }
 
-.map {
-    padding: 3rem 0;
-    background-color: white;
-}
-
-.map-title {
-    text-align: center;
-    color: #d32f2f;
+/* Part 2 Task 4: I created the image gallery using CSS Grid with equal columns and hover overlay effects */
+.gallery {
     margin-bottom: 2rem;
 }
 
-.map-placeholder {
-    background-color: #f8f9fa;
-    border: 2px dashed #d32f2f;
-    border-radius: 10px;
-    padding: 3rem;
+.gallery h2 {
     text-align: center;
-    color: #666;
+    color: #2c3e50;
+    margin-bottom: 2rem;
+    font-size: 2rem;
 }
 
-/* Responsive map embed */
-.map-embed {
+.gallery-grid {
+    display: grid; /* Making gallery a grid container as required */
+    grid-template-columns: repeat(3, 1fr); /* Three equal-width columns */
+    gap: 1rem; /* Adding consistent spacing between images */
+}
+
+.gallery-item {
     position: relative;
-    padding-bottom: 56.25%;
-    height: 0;
-    overflow: hidden;
     border-radius: 10px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
 }
 
-.map-embed iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
+.gallery-item:hover {
+    transform: scale(1.05); /* Scaling image slightly on hover */
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2); /* Adding shadow effect */
+}
+
+.gallery-item img {
     width: 100%;
-    height: 100%;
-    border: 0;
+    height: 200px;
+    object-fit: cover;
+    transition: all 0.3s ease;
 }
 
+.gallery-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0,0,0,0.8));
+    color: white;
+    padding: 1rem;
+    transform: translateY(100%);
+    transition: all 0.3s ease;
+}
+
+.gallery-item:hover .gallery-overlay {
+    transform: translateY(0); /* Showing caption overlay on hover as required */
+}
+
+.gallery-overlay h4 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.gallery-overlay p {
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+/* Part 3: Footer spans across the bottom of the page to complete the website structure */
 .footer {
     background-color: #2c3e50;
     color: white;
-    padding: 3rem 0 1rem;
+    padding: 2rem 0 1rem;
+    margin-top: 2rem;
 }
 
 .footer-content {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    margin-bottom: 2rem;
+    display: flex;
+    justify-content: space-around;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
 }
 
 .footer-section h3 {
     color: #d32f2f;
     margin-bottom: 1rem;
-}
-
-.footer-section ul {
-    list-style: none;
-}
-
-.footer-section ul li {
-    margin-bottom: 0.5rem;
-    color: #bdc3c7;
 }
 
 .footer-section p {
@@ -559,201 +305,103 @@ img {
 
 .footer-bottom {
     text-align: center;
-    padding-top: 2rem;
+    padding-top: 1rem;
     border-top: 1px solid #34495e;
     color: #bdc3c7;
+    margin-top: 1rem;
 }
 
-/* ===========================================
-   ID SELECTORS
-   =========================================== */
-#main-header {
-    background-color: white;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
+/* Additional styles for menu and contact pages to make them look consistent with the main page */
+.card-image {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 1rem;
 }
 
-#hero-section {
-    background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+.menu-section {
+    margin-bottom: 3rem;
 }
 
-#features-section {
-    background-color: white;
-}
-
-#popular-pizzas {
-    background-color: #f8f9fa;
-}
-
-#menu-section {
-    background-color: white;
-}
-
-#contact-section {
-    background-color: #f8f9fa;
-}
-
-#map-section {
-    background-color: white;
-}
-
-#main-footer {
-    background-color: #2c3e50;
-}
-
-/* ===========================================
-   DESCENDANT SELECTORS
-   =========================================== */
-.main-nav a {
+.menu-section h3 {
     color: #d32f2f;
+    margin-bottom: 2rem;
+    font-size: 1.8rem;
+    text-align: center;
+}
+
+.price {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #d32f2f;
+    margin: 1rem 0;
+}
+
+.contact-cards {
+    margin-bottom: 3rem;
+}
+
+.contact-form-section {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    margin-bottom: 2rem;
+}
+
+.contact-form-section h3 {
+    color: #d32f2f;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.form-row {
+    display: flex;
+    gap: 1rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+    flex: 1;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
     font-weight: 500;
-    transition: color 0.3s ease;
+    color: #2c3e50;
 }
 
-.main-nav a:hover {
-    color: #b71c1c;
+.form-input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
 }
 
-.footer-section ul li a {
-    color: #bdc3c7;
-    transition: color 0.3s ease;
+.form-input:focus {
+    outline: none;
+    border-color: #d32f2f;
 }
 
-.footer-section ul li a:hover {
+.map-section {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.map-section h3 {
     color: #d32f2f;
+    margin-bottom: 2rem;
+    text-align: center;
 }
 
-/* ===========================================
-   RESPONSIVE DESIGN
-   =========================================== */
-@media (max-width: 768px) {
-    .header-content {
-        flex-direction: column;
-        gap: 1rem;
-    }
-    
-    .main-nav ul {
-        flex-direction: column;
-        gap: 0.5rem;
-        text-align: center;
-    }
-    
-    .hero {
-        flex-direction: column;
-        text-align: center;
-    }
-    
-    .hero-title {
-        font-size: 2rem;
-    }
-    
-    .contact-content {
-        grid-template-columns: 1fr;
-    }
-    
-    .menu-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .menu-item {
-        flex-direction: column;
-        text-align: center;
-    }
-    
-    .menu-item-image {
-        margin-right: 0;
-        margin-bottom: 1rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .container {
-        padding: 0 10px;
-    }
-    
-    .hero {
-        padding: 2rem 1rem;
-    }
-    
-    .hero-title {
-        font-size: 1.5rem;
-    }
-    
-    .section-title {
-        font-size: 1.5rem;
-    }
-}
-
-/* ===========================================
-   ADVANCED STYLING (BONUS)
-   =========================================== */
-
-/* Pseudo-elements for decorative elements */
-.section-title::before {
-    content: '🍕';
-    margin-right: 0.5rem;
-    font-size: 1.2em;
-}
-
-/* Smooth transitions for interactive elements */
-.cta-button,
-.submit-button,
-.nav-link,
-.pizza-card,
-.feature-card,
-.menu-item {
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-/* Custom scrollbar */
-::-webkit-scrollbar {
-    width: 8px;
-}
-
-::-webkit-scrollbar-track {
-    background: #f1f1f1;
-}
-
-::-webkit-scrollbar-thumb {
-    background: #d32f2f;
-    border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: #b71c1c;
-}
-
-/* Loading animation for images */
-.pizza-image,
-.menu-image {
-    transition: opacity 0.3s ease;
-}
-
-.pizza-image:hover,
-.menu-image:hover {
-    opacity: 0.9;
-}
-
-/* Focus styles for accessibility */
-.cta-button:focus,
-.submit-button:focus,
-.nav-link:focus {
-    outline: 2px solid #d32f2f;
-    outline-offset: 2px;
-}
-
-/* Print styles */
-@media print {
-    .main-nav,
-    .cta-button,
-    .submit-button {
-        display: none;
-    }
-    
-    body {
-        font-size: 12pt;
-        line-height: 1.4;
-    }
+.map-container {
+    border-radius: 10px;
+    overflow: hidden;
 }
